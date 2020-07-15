@@ -4,25 +4,23 @@ import { observer, inject } from 'mobx-react'
 
 import { AtTabBar } from 'taro-ui'
 
-import { Community } from './community'
+
+import TabContent from '../../components/tabbarContent'
+import Community from './community'
+import Communication from './communication'
+import Schools from './schools'
+import Mine from './mine'
 
 import './index.scss'
 
 @inject('store')
 @observer
 class Index extends Component {
-  componentWillMount () { }
 
   componentDidMount () {
     const { tabbarStore } = this.props.store
     tabbarStore.init()
   }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
 
   handleClick (value) {
     const { tabbarStore } = this.props.store
@@ -30,11 +28,16 @@ class Index extends Component {
   }
 
   render () {
-    const { tabbarStore: { tabbar,current,pagename } } = this.props.store
+    const { tabbarStore: { tabbar,current,pageurl } } = this.props.store
     return (
       <View className='index'>
         <View className='content'>
-          {pagename}
+          <TabContent current={current}>
+            <Community />
+            <Communication />
+            <Schools />
+            <Mine />
+          </TabContent>
         </View>
         <View className='bottombar'>
           <AtTabBar
