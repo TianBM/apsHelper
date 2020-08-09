@@ -17,11 +17,6 @@ import './index.scss'
 @observer
 class Index extends Component {
 
-  componentDidMount () {
-    const { tabbarStore } = this.props.store
-    tabbarStore.init()
-  }
-
   handleClick (value) {
     const { tabbarStore } = this.props.store
     tabbarStore.changeCurrent(value)
@@ -39,14 +34,13 @@ class Index extends Component {
             <Mine />
           </TabContent>
         </View>
-        <View className='bottombar'>
-          <AtTabBar
-            fixed
-            tabList={tabbar}
-            onClick={this.handleClick.bind(this)}
-            current={current}
-          />
-        </View>
+        <AtTabBar
+          className='bottombar'
+          fixed
+          tabList={tabbar}
+          onClick={this.handleClick.bind(this)}
+          current={current}
+        />
       </View>
     )
   }
