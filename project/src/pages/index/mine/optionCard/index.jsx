@@ -31,12 +31,15 @@ export default class Optioncard extends Component{
     }
 
     render(){
-        const { url, title } = this.props
+        const { url, title, icon } = this.props
         return(
             
-            <View onClick={this.navigatorTo.bind(this, url)} >
-                <AtIcon value='clock' size='30' color='#F00' />
-                <Text>{title}</Text>
+            <View className='option' onClick={this.navigatorTo.bind(this, url)} >
+                <View>
+                <AtIcon className='icon' value={icon} size='20px' />
+                <Text className='title'>{title}</Text>
+                </View>
+                
             </View>
         )
     }

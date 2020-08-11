@@ -8,6 +8,10 @@ import OptionCard from './optionCard'
 
 export default class Mine extends Component {
 
+    componentDidMount(){
+        
+    }
+
     render(){ 
         return( 
         <View className='background'>
@@ -20,16 +24,19 @@ export default class Mine extends Component {
                 <OptionCard 
                     url='/pages/userInfo/index'
                     title='选项一'
+                    icon='user'
                     />
                 <OptionCard
                     url='/pages/userInfo/index'
                     title='选项二'
+                    icon='equalizer'
                 />
             </SettingBox>
             <SettingBox>
                 <OptionCard
                     url='/pages/userInfo/index'
                     title='选项三'
+                    icon='help'
                 />
             </SettingBox>
         </View>

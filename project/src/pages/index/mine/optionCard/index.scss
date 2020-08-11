@@ -1,0 +1,15 @@
+.option{
+    width: 100%;
+    height: 80rpx;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .icon{
+        margin: 0 0 0 20rpx;
+    }
+    .title{
+        margin: 0 0 0 40rpx;
+    }
+}
