@@ -9,7 +9,7 @@ import OptionCard from './optionCard'
 export default class Mine extends Component {
 
     componentDidMount(){
-        
+
     }
 
     render(){ 
@@ -23,20 +23,25 @@ export default class Mine extends Component {
             <SettingBox>
                 <OptionCard 
                     url='/pages/userInfo/index'
-                    title='选项一'
+                    title='个人管理'
                     icon='user'
                     />
                 <OptionCard
                     url='/pages/userInfo/index'
-                    title='选项二'
+                    title='设置中心'
                     icon='equalizer'
                 />
             </SettingBox>
             <SettingBox>
                 <OptionCard
                     url='/pages/userInfo/index'
-                    title='选项三'
+                    title='帮助'
                     icon='help'
+                />
+                <OptionCard
+                    url='/pages/userInfo/index'
+                    title='添加到我的小程序'
+                    icon='star'
                 />
             </SettingBox>
         </View>

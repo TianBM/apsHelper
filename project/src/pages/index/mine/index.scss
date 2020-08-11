@@ -6,6 +6,7 @@
     flex-flow:column wrap;
 }
 
+
 .usershow{
     height: 400rpx;
     width: 100%;
@@ -15,6 +16,12 @@
     flex-flow:column wrap;
     text-align: center;
     background-color: #FDFDFD;
+    background-image: url('https://cos-1256179601.cos.ap-guangzhou.myqcloud.com/blog/3d5db16670462e5c6ecd5c1e290aa11c.jpg');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
     .avatar{
         width: 150rpx;
         height: 150rpx;
