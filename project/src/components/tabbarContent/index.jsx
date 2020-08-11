@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-export default class Content extends Component{
+export default class TabContent extends Component{
 
     constructor(props){
         super(props);
