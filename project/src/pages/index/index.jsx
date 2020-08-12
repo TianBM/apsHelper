@@ -10,6 +10,7 @@ import Community from './community'
 import Communication from './communication'
 import Schools from './schools'
 import Mine from './mine'
+import Poster from './post'
 
 import './index.scss'
 
@@ -39,16 +40,17 @@ class Index extends Component {
           <TabContent current={current}>
             <Community />
             <Communication />
+            <Poster />
             <Schools />
             <Mine />
           </TabContent>
         </View>
         <AtTabBar
-          className='bottombar'
           fixed
           tabList={[
           { title: '社区', iconType: 'streaming' },
           { title: '名校库', iconType: 'folder' },
+          {title: '发布',iconType: 'add-circle'},
           { title: '消息', iconType: 'message' },
           { title: '我的', iconType: 'user' }
         ]}

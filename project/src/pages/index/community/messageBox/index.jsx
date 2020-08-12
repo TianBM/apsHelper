@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Button, Text, Image, RichText } from '@tarojs/components'
+import { View, Button, Text, Image, RichText, Icon } from '@tarojs/components'
 
 import './index.scss'
+import { AtIcon } from 'taro-ui'
 
 export default class MessageBox extends Component {
 
@@ -15,7 +16,7 @@ export default class MessageBox extends Component {
     render () {
         const { circle, author, logo, content, location, comment, share, time, action } = this.props
         return (
-        <View className='box'>
+        <View className='mainBox'>
             <View className='top'>
                 <Image className='logo' src={ logo } />
                 <Text className='circle'>{circle}</Text>
@@ -26,11 +27,11 @@ export default class MessageBox extends Component {
                     <Text className='location'>{location}</Text>
                 </View>
             </View>
-            <View>
-                <RichText className='content' nodes={content} />
+            <View className='contentBox'>
+                <RichText className='richText' nodes={content} />
             </View>
-            <View>
-
+            <View className='bottomBox'>
+                <AtIcon className='icon' value='share' />
             </View>
         </View>
         )
