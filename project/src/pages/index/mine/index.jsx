@@ -16,6 +16,7 @@ export default class Mine extends Component {
         return( 
         <View className='background'>
             <View className='usershow'>
+                <Image className='backgroundImg' src='https://cos-1256179601.cos.ap-guangzhou.myqcloud.com/blog/3d5db16670462e5c6ecd5c1e290aa11c.jpg' />
                 <Image className='avatar' src='https://jdc.jd.com/img/200' />
                 <View className='name'>用户名</View>
                 <View className='description'>个人介绍</View>

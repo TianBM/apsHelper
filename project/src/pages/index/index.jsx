@@ -17,13 +17,22 @@ import './index.scss'
 @observer
 class Index extends Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
+      current: 0
+    }
+  }
+
   handleClick (value) {
-    const { tabbarStore } = this.props.store
-    tabbarStore.changeCurrent(value)
+    this.setState({
+      current: value
+    })
   }
 
   render () {
-    const { tabbarStore: { tabbar,current,pageurl } } = this.props.store
+    // const { tabbarStore: { tabbar,current,pageurl } } = this.props.store
+    const { current } = this.state
     return (
       <View className='index'>
         <View className='content'>
@@ -37,9 +46,16 @@ class Index extends Component {
         <AtTabBar
           className='bottombar'
           fixed
-          tabList={tabbar}
+          tabList={[
+          { title: '社区', iconType: 'streaming' },
+          { title: '名校库', iconType: 'folder' },
+          { title: '消息', iconType: 'message' },
+          { title: '我的', iconType: 'user' }
+        ]}
           onClick={this.handleClick.bind(this)}
           current={current}
+          iconSize='22'
+          fontSize='12'
         />
       </View>
     )
