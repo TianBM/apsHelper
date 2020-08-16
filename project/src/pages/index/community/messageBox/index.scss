@@ -31,23 +31,14 @@
     margin-left: 40rpx;
     grid-row: 2/3;
     grid-column: 2/3;
-    font-size: 25rpx;
-    line-height: 30rpx;
+    height: 40rpx;
 }
 
-.author{
-    
-}
-.action{
-
-}
-
-.time{
-
-}
-
-.richText{
-
+.userLogo{
+    height: 30rpx;
+    width: 30rpx;
+    border-radius: 15rpx;
+    margin: 5rpx;
 }
 
 .icon{
@@ -60,4 +51,10 @@
 
 .bottomBox{
     text-align: right;
+}
+
+.author{
+    font-size: 25rpx;
+    
+    line-height: 40rpx;
 }
