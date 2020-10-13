@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '德国留学社区'
+  navigationBarTitleText: '留学圈'
 }

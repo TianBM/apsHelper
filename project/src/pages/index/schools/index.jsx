@@ -4,6 +4,6 @@ import { View, Button, Text } from '@tarojs/components'
 export default class Schools extends Component {
 
     render(){ 
-        return <View>345</View>
+        return <View>学校组件</View>
     } 
 }

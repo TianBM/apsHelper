@@ -7,10 +7,9 @@ import { AtTabBar } from 'taro-ui'
 
 import TabContent from '../../components/tabbarContent'
 import Community from './community'
-import Communication from './communication'
+import Message from './message'
 import Schools from './schools'
 import Mine from './mine'
-import Poster from './post'
 
 import './index.scss'
 
@@ -39,9 +38,8 @@ class Index extends Component {
         <View className='content'>
           <TabContent current={current}>
             <Community />
-            <Communication />
-            <Poster />
             <Schools />
+            <Message />
             <Mine />
           </TabContent>
         </View>
@@ -50,7 +48,6 @@ class Index extends Component {
           tabList={[
           { title: '社区', iconType: 'streaming' },
           { title: '名校库', iconType: 'folder' },
-          {title: '发布',iconType: 'add-circle'},
           { title: '消息', iconType: 'message' },
           { title: '我的', iconType: 'user' }
         ]}
