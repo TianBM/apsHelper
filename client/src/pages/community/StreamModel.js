@@ -22,15 +22,19 @@ const Message = types
     location: types.string,
     time: types.string,
     action: types.string,
-    _id: types.string,
+    _id: types.identifier,
     tags: types.array(Tag),
     shottime: types.string,
     like: types.boolean,
+    focus: types.boolean,
     }
 )
 .actions(self=>({
     tapLike(){
         self.like = !self.like
+    },
+    tapFocus(){
+        self.focus = !self.focus
     }
 }))
 
@@ -38,37 +42,17 @@ const StreamModel = types
 .model(
     'StreamModel',{
     messages: types.array(Message),
-    searchKeyWord: types.string,
     bottomAlert: types.boolean,
     bottomAlertInfo: types.string,
     }
 )
 .actions(self=>({
-    updateStream(newStream){
-        self.isRefreshing = true
-        newStream.forEach(message=>{
-            self.messages.unshift(message)
-        })
-        self.isRefreshing = false
+    appendStream(newMsgs){
+        self.messages = self.messages.concat(newMsgs)
     },
-    initStream(newStream){
-        self.messages = newStream
-    },
-    onChangeKeywords(keywords){
-        self.searchKeyWord = keywords
-    },
-    onSearch(event){
-        console.log(self.searchKeyWord)
+    setStream(newMsgs){
+        self.messages = newMsgs
     }
 }))
 
-const Store = StreamModel.create({
-    messages:[],
-    searchKeyWord:'',
-    loadingState:true,
-    bottomAlert:false,
-    bottomAlertInfo:'',
-    isRefreshing:false
-})
-
-export default Store
+export default StreamModel

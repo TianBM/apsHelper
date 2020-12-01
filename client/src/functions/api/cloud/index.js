@@ -1,7 +1,12 @@
 import Taro from '@tarojs/taro'
 
-class CommunityApi{
-
+export default {
+    registUser(data){
+        Taro.cloud.callFunction({
+            name:'registUser',
+            data:data    
+        })
+    },
     fetchStream(){
         return Taro.cloud.callFunction({
             name:'initStream',
@@ -9,25 +14,21 @@ class CommunityApi{
     
             }
         })
-    }
-    
+    },
     fetchStreamUpdate(){
         return Taro.cloud.callFunction({
-            name:'initStream',
+            name:'updateStream',
             data:{
     
             }
         })
-    }
-
+    },
     searchStream(keywords){
         return Taro.cloud.callFunction({
-            name:'initStream',
+            name:'updateStream',
             data:{
                 keywords:keywords
             }
         })
     }
 }
-
-export default new CommunityApi()

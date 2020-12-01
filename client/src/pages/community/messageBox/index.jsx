@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, RichText, Button } from '@tarojs/components'
+import { View, Text, Image, RichText } from '@tarojs/components'
 import { AtIcon, AtTag } from 'taro-ui'
 import { styled } from 'linaria/react'
 import Taro from '@tarojs/taro'
@@ -12,6 +12,7 @@ export default class MessageBox extends Component {
 
     constructor(props){
         super(props)
+        this.Model = this.props.parms
     }
 
     handleNavi(url){
@@ -21,23 +22,20 @@ export default class MessageBox extends Component {
     }
 
     render () {
-        const { author, authorAvater, content, location, commentParm, time, action, _id, tags, shottime, like, tapLike } = this.props.parms
+        const { author, authorAvater, content, location, commentParm, time, action, _id, tags, shottime, like, tapLike, focus, tapFocus } = this.Model
         return (
         <Message>
             <MessageTitleGrid>
                 <AuthorAvater src={authorAvater} />
                 <Author>{author}</Author> 
-                <Focus>关注</Focus>
+                <Focus onClick={tapFocus.bind(this)}> {focus?'已关注':'关注'}</Focus>
                 <AuthorDesc>在{shottime}{action}</AuthorDesc>
             </MessageTitleGrid>
             <MessageContent onClick={this.handleNavi.bind(this,'/pages/detail/index?id='+_id,commentParm)}>
                 <ContentShower nodes={content} />
             </MessageContent>
             <MessageBottom>
-                <MessageTags>
-                    <IconBox><AtIcon size='18' value='tag' /></IconBox>
-                    <IconBox><AtTag type='primary' size='small' circle>标签</AtTag></IconBox>
-                </MessageTags>
+                <Tags tags={tags} />
                 <MessageButton>
                     <IconBox><AtIcon onClick={tapLike.bind(this)} size='18' value={like?'heart-2':'heart'} /></IconBox>
                     <IconBox><AtIcon size='18' value='share' /></IconBox>
@@ -48,6 +46,20 @@ export default class MessageBox extends Component {
     }
 }
 
+function Tags(props){
+    const { tags } = props
+    return(
+        <MessageTags>
+            <IconBox><AtIcon size='18' value='tag' /></IconBox>
+            {
+                tags?   
+                tags.map(tag=>{<IconBox><AtTag type='primary' size='small' circle onClick={console.log('点击了'+tag.name)}>{tag.name}</AtTag></IconBox> })
+                :null
+            }    
+        </MessageTags>   
+    )
+}
+
 const IconBox = styled(View)`
     margin: 0 10rpx 0 10rpx;
     display:inline;
@@ -55,21 +67,25 @@ const IconBox = styled(View)`
 
 const ContentShower = styled(RichText)`
     width: 96%;
-    max-height:300rpx;
+    max-height:400rpx;
+    word-wrap:break-word;
+    word-break:normal;
+    overflow:hidden;
+    text-overflow:ellipsis;
 `
 
 
 const Focus = styled(View)`
     grid-row: 1/2;
     grid-column: 3/4;
-    margin: 0 20rpx 0 0;
+    margin: 0 90rpx 0 0;
     display: flex;
     align-items: center; 
     justify-content: center;
     flex-flow:column wrap;
     text-align: center;
     height: 45rpx;
-    width: 85rpx;
+    width: 105rpx;
     border: 1rpx solid grey;
     border-radius: 10rpx;
 `
@@ -79,13 +95,13 @@ const Message = styled(View)`
     width: 100%;
     background-color: #FDFDFD;
     padding: 20rpx 0 20rpx 0;
-    max-height: 400rpx;
+    max-height: 500rpx;
 `
 
 const MessageTitleGrid = styled(View)`
     display: grid;
     grid-template-rows: 50% 50%;
-    grid-template-columns: 13% 74% 13%;
+    grid-template-columns: 14% 68% 18%;
     height: 100rpx;
 `
 

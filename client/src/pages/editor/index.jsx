@@ -28,15 +28,15 @@ export default class MsgEditor extends Component {
     }
 
     postMessage(){
-        const { UiStore:{UserStore:{ userInfo }} } = this.props.store
+        const { UiStore:{ user }} = this.props.store
         const date = new Date()
         this.editorCtx.getContents({
             success: res => {
                 Taro.cloud.callFunction({
                     name:'postMessage',
                     data:{
-                        author:userInfo['nickName'],
-                        authorAvater:userInfo['avatarUrl'],
+                        author:user.name,
+                        authorAvater:user.avatarUrl,
                         action:'发布了',
                         time: date.toString(),
                         shottime: date.toDateString(),

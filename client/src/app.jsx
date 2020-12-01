@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import { Provider } from 'mobx-react'
 import Taro from '@tarojs/taro'
-// import './themes/custom-theme.scss'
+import './themes/custom-theme.scss'
 import 'taro-ui/dist/style/index.scss'
 import 'taro-skeleton/dist/index.css' // 引入组件样式
 
 import UiStore from './store/UiStore'
-import DomainStore from './store/DomainStore'
 
 import './app.scss'
 
-
 const store = {
-  UiStore,
-  DomainStore
+  UiStore
 }
 
 class App extends Component {

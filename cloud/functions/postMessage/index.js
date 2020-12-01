@@ -29,7 +29,8 @@ exports.main = async (event, context) => {
       location:location,
       tags:tags,
       content:content,
-      like:false
+      like:false,
+      focus:false,
     }
   })
   
