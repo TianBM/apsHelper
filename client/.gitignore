@@ -7,3 +7,4 @@ node_modules/
 *.test.*
 .linaria-cache
 package.lock.json
+yarn.lock
